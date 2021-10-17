@@ -22,10 +22,13 @@ namespace ApiCode.Controllers
             try
             {
                 string info = new WebClient().DownloadString("https://ipinfo.io/" + ipadress);
-                ipInfo = JsonConvert.DeserializeObject<Ipinfo>(info);
-               if(ipInfo.City!=null)
+                if (info != null)
                 {
-                    cityLocation = ipInfo.City;
+                    ipInfo = JsonConvert.DeserializeObject<Ipinfo>(info);
+                    if (ipInfo.City != null)
+                    {
+                        cityLocation = ipInfo.City;
+                    }
                 }
             }
             catch (Exception)

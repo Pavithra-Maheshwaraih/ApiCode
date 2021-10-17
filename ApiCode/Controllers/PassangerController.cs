@@ -23,6 +23,7 @@ namespace ApiCode.Controllers
             try
             {
                 string info = new WebClient().DownloadString("https://jayridechallengeapi.azurewebsites.net/api/QuoteRequest");
+                if(info!=null)
                 {
                     Jayride.Root jay = JsonConvert.DeserializeObject<Jayride.Root>(info);
                     List<Jayride.Listing> Jayridelist = new List<Jayride.Listing>();
